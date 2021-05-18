@@ -29,6 +29,7 @@ function change(){
 $("div").click(change)
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
+	i=1
         change()
     }
 }
@@ -37,7 +38,7 @@ var text = ["去","不去"];
 var i=0;
 function wait(){
     //do what you need here
-	//i=(i+1)%2
+	i=(i+1)%2
 	$("div").text(text[i]);
 	if(keep){
     setTimeout(wait, time);}
