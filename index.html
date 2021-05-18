@@ -20,16 +20,21 @@ div {
 $(document).ready(function(){
 $("div").css("line-height", $("div").css("height"));
 var keep = true;
+var keep2 = false;
 var time=20
 function change(){
 	keep=!keep
+	keep2=!keep2
 	if(keep){
-    setTimeout(wait, time);}
+    		setTimeout(wait, time);
+	}
+	if(keep2){
+    		setTimeout(force, time);
+	}
 }
 $("div").click(change)
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
-	i=1
         change()
     }
 }
@@ -41,7 +46,15 @@ function wait(){
 	i=(i+1)%2
 	$("div").text(text[i]);
 	if(keep){
-    setTimeout(wait, time);}
+   		setTimeout(wait, time);
+	}
+}
+function force(){
+    //do what you need here
+	$("div").text(text[0]);
+	if(keep2){
+    		setTimeout(force, time);
+	}
 }
 wait()
 
