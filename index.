@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dating</title>
+<style>
+div {
+	color:red;
+	font-size: 1000%;
+	text-align: center;
+	position: fixed;
+  	bottom: 0;
+  	top: 0;
+  	right:0;
+  	left:0;
+	}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+$(document).ready(function(){
+$("div").css("line-height", $("div").css("height"));
+var keep = true;
+var time=20
+function change(){
+	keep=!keep
+	if(keep){
+    setTimeout(wait, time);}
+}
+$("div").click(change)
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        change()
+    }
+}
+
+var text = ["去","不去"];
+var i=0;
+function wait(){
+    //do what you need here
+	i=(i+1)%2
+	$("div").text(text[i]);
+	if(keep){
+    setTimeout(wait, time);}
+}
+wait()
+
+
+});
+
+</script>
+</head>
+<body>
+
+<div>
+</div>
+
+
+
+</body>
+</html>
